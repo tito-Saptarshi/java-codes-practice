@@ -22,12 +22,7 @@ public class RotatedSearchArray {
         if (val1 != -1){
             return val1;
         }
-        else if (val2 != -1){
-            return val2;
-        }
-        else {
-            return -1;
-        }
+        else return val2;
     }
 
     static int pivot(int[] arr) {

@@ -28,8 +28,9 @@ public class SearchRange {
             else {
                 start = mid + 1;
             }
-            if(nums[mid] == target){
+            if (nums[mid] == target) {
                 check = true;
+                break;
             }
         }
         int mid = start + (end - start)/2;
@@ -52,8 +53,9 @@ public class SearchRange {
             else {
                 end = mid - 1;
             }
-            if(nums[mid] == target){
+            if (nums[mid] == target) {
                 check = true;
+                break;
             }
         }
         int mid = start + (end - start)/2;
