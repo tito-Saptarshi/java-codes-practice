@@ -8,7 +8,7 @@ public class MazePath {
         System.out.println("print maze paths");
         System.out.println(countPossiblePaths(3, 3));
         printpaths("", 3, 3);
-        System.out.println(returnPathsInArrayList("", 3, 3));
+        System.out.println(returnPathsIncludingDiagonal("", 3, 3));
     }
 
     // count total number of possible ways
@@ -46,6 +46,24 @@ public class MazePath {
             list.addAll( returnPathsInArrayList(processed + 'R', r - 1, c));
         if(c > 1)
             list.addAll(returnPathsInArrayList(processed + 'D', r, c - 1));
+
+        return list;
+    }
+
+    static ArrayList<String> returnPathsIncludingDiagonal(String processed, int r, int c) {
+        if(r == 1 && c == 1){
+            ArrayList<String> list = new ArrayList<>();
+            list.add(processed);
+            return list;
+        }
+
+        ArrayList<String> list = new ArrayList<>();
+        if(r > 1 && c > 1)
+            list.addAll( returnPathsIncludingDiagonal(processed + 'D', r - 1, c - 1));
+        if(r > 1)
+            list.addAll( returnPathsIncludingDiagonal(processed + 'H', r - 1, c));
+        if(c > 1)
+            list.addAll(returnPathsIncludingDiagonal(processed + 'V', r, c - 1));
 
         return list;
     }
